@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>高松入境・岡山員工旅遊 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap');
+
+:root {
+  --ink:    #1C2B3A;
+  --ci-red: #C0272D;
+  --sea:    #1A6B9A;
+  --sea-lt: #E8F4FB;
+  --teal:   #2A8C7E;
+  --sand:   #F6F1E8;
+  --gold:   #D4A53F;
+  --rust:   #B84A1E;
+  --slate:  #4A5F72;
+  --line:   #DDE5EE;
+  --white:  #FEFEFE;
+  --mist:   #EFF4F8;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Noto Sans TC', sans-serif; background: var(--sand); color: var(--ink); font-size: 14px; line-height: 1.6; }
+
+/* HEADER */
+header {
+  background: linear-gradient(135deg, var(--ink) 0%, #2A3F52 100%);
+  color: white; padding: 40px 36px 28px; position: relative; overflow: hidden;
+}
+header::before {
+  content: '瀨戶內海';
+  position: absolute; right: -20px; top: 50%; transform: translateY(-50%);
+  font-family: 'Playfair Display', serif; font-size: 5rem; font-weight: 700;
+  color: rgba(255,255,255,0.04); pointer-events: none; white-space: nowrap;
+}
+.h-grid { display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: start; flex-wrap: wrap; }
+.h-title { font-family: 'Playfair Display', serif; font-size: 2.2rem; line-height: 1.1; }
+.h-title em { font-style: italic; color: var(--gold); }
+.h-sub { font-size: 0.72rem; letter-spacing: 0.1em; color: rgba(255,255,255,0.45); margin-top: 5px; text-transform: uppercase; }
+
+/* FLIGHT BOX */
+.flight-box {
+  background: rgba(192,39,45,0.15); border: 1px solid rgba(192,39,45,0.4);
+  border-radius: 10px; padding: 12px 16px; min-width: 220px;
+}
+.flight-airline { font-size: 0.7rem; letter-spacing: 0.08em; color: #FF9090; text-transform: uppercase; margin-bottom: 4px; }
+.flight-row { display: flex; align-items: center; gap: 8px; font-size: 0.82rem; margin-bottom: 2px; }
+.flight-row strong { color: white; }
+.flight-arr { font-size: 0.68rem; color: rgba(255,255,255,0.55); margin-top: 4px; }
+
+.header-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 18px; }
+.htag { background: rgba(255,255,255,0.09); border: 1px solid rgba(255,255,255,0.16); border-radius: 20px; padding: 3px 12px; font-size: 0.7rem; color: rgba(255,255,255,0.8); }
+
+/* CAR ADVICE BANNER */
+.car-banner {
+  background: var(--teal); color: white;
+  padding: 11px 36px; font-size: 0.78rem;
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+}
+.car-banner strong { font-size: 0.85rem; }
+.car-pill {
+  background: rgba(255,255,255,0.18); border-radius: 20px;
+  padding: 3px 10px; font-size: 0.7rem; margin-left: 4px;
+}
+
+/* HOTEL STRIP */
+.hotel-strip {
+  background: var(--sea); color: white;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 10px; padding: 12px 36px; font-size: 0.78rem;
+}
+.hotel-group { display: flex; gap: 24px; flex-wrap: wrap; }
+.h-item { display: flex; align-items: center; gap: 8px; }
+.h-badge { background: rgba(255,255,255,0.15); border-radius: 6px; padding: 2px 8px; font-size: 0.65rem; white-space: nowrap; }
+.h-name { font-weight: 700; }
+.h-detail { font-size: 0.68rem; opacity: 0.75; margin-top: 1px; }
+.h-price { text-align: right; }
+.h-price .pv { font-family: 'Playfair Display', serif; font-size: 1rem; color: #FFD97D; display: block; }
+.h-price .pl { font-size: 0.65rem; opacity: 0.65; }
+
+/* MAIN */
+.wrap { max-width: 880px; margin: 0 auto; padding: 24px 18px 40px; }
+
+/* DAY CARD */
+.day {
+  display: flex; background: var(--white); border-radius: 14px;
+  overflow: hidden; box-shadow: 0 2px 12px rgba(28,43,58,0.08);
+  margin-bottom: 14px;
+}
+.day-side {
+  width: 82px; min-width: 82px; display: flex; flex-direction: column;
+  align-items: center; padding: 20px 6px 16px; color: white;
+}
+.ds1 { background: #1A6B9A; }
+.ds2 { background: #2A8C7E; }
+.ds3 { background: #5A4A9E; }
+.ds4 { background: #B84A1E; }
+.ds5 { background: #3D5A70; }
+
+.d-num { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; line-height: 1; }
+.d-wd  { font-size: 0.6rem; letter-spacing: 0.06em; opacity: 0.75; margin-top: 2px; }
+.d-dt  { font-size: 0.65rem; margin-top: 8px; opacity: 0.7; text-align: center; line-height: 1.4; }
+.d-loc { font-size: 0.55rem; letter-spacing: 0.04em; writing-mode: vertical-rl; margin-top: 10px; opacity: 0.55; text-transform: uppercase; }
+
+.day-body { flex: 1; padding: 16px 18px; }
+.d-head {
+  font-weight: 700; font-size: 0.93rem; margin-bottom: 12px;
+  display: flex; align-items: center; gap: 6px;
+  border-bottom: 1px solid var(--line); padding-bottom: 10px;
+}
+
+/* TIMELINE */
+.tl { display: flex; flex-direction: column; gap: 8px; }
+.tl-row { display: flex; align-items: flex-start; gap: 9px; }
+.tl-t { width: 36px; min-width: 36px; font-size: 0.66rem; color: #90A0B0; padding-top: 4px; font-weight: 600; }
+.tl-dc { display: flex; flex-direction: column; align-items: center; padding-top: 5px; }
+.tl-dot { width: 8px; height: 8px; border-radius: 50%; border: 2px solid currentColor; background: white; flex-shrink: 0; }
+.tl-ln { width: 1px; background: var(--line); flex: 1; min-height: 18px; margin-top: 3px; }
+.tl-row:last-child .tl-ln { display: none; }
+.tl-c { flex: 1; }
+.tl-name { font-weight: 600; font-size: 0.84rem; line-height: 1.3; }
+.tl-desc { font-size: 0.71rem; color: #607080; margin-top: 2px; line-height: 1.5; }
+
+/* SPOT CARD with photo */
+.spot-card {
+  display: flex; gap: 10px; margin-top: 6px;
+  background: var(--mist); border-radius: 8px; overflow: hidden;
+}
+.spot-img {
+  width: 80px; min-width: 80px; height: 60px; object-fit: cover;
+  background: #C8D8E8; display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem; flex-shrink: 0;
+}
+.spot-img img { width: 100%; height: 100%; object-fit: cover; }
+.spot-info { padding: 6px 8px 6px 0; flex: 1; }
+.spot-name { font-weight: 700; font-size: 0.78rem; line-height: 1.3; }
+.spot-meta { font-size: 0.65rem; color: #607080; margin-top: 2px; line-height: 1.5; }
+.spot-link {
+  display: inline-block; margin-top: 4px; font-size: 0.63rem;
+  color: var(--sea); text-decoration: none; border-bottom: 1px solid var(--sea-lt);
+}
+.spot-link:hover { color: var(--ci-red); }
+
+/* TAGS */
+.tr { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 5px; }
+.tag { font-size: 0.6rem; padding: 2px 7px; border-radius: 6px; font-weight: 600; white-space: nowrap; }
+.t-ci   { background: #FDEAEA; color: #C0272D; }
+.t-eat  { background: #FFF0E5; color: #B84A1E; }
+.t-art  { background: #EDE8F8; color: #5A4A9E; }
+.t-bike { background: #E5F5F0; color: #2A8C7E; }
+.t-sea  { background: #E5F0F8; color: #1A6B9A; }
+.t-hist { background: #F5F0E5; color: #8B6010; }
+.t-shop { background: #FCE8F5; color: #9A3070; }
+.t-warn { background: #FFF8E0; color: #8A6200; }
+.t-must { background: #C0272D; color: white; }
+.t-free { background: var(--teal); color: white; }
+.t-car  { background: #E8F5E5; color: #2E6E28; }
+
+/* ALERT */
+.alert { margin-top: 10px; background: #FFFAE8; border-left: 3px solid var(--gold); border-radius: 6px; padding: 7px 10px; font-size: 0.7rem; color: #7A5C00; line-height: 1.6; }
+
+/* COST SECTION */
+.cost-wrap { margin-top: 22px; }
+.section-title {
+  font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em;
+  color: #8A9BAA; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;
+}
+.section-title::after { content: ''; flex: 1; height: 1px; background: var(--line); }
+
+.cost-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(145px,1fr)); gap: 10px; margin-bottom: 12px; }
+.cc {
+  background: var(--white); border-radius: 10px; padding: 13px 14px;
+  box-shadow: 0 1px 6px rgba(28,43,58,0.07); border-top: 3px solid var(--sea);
+}
+.cc.rust   { border-color: var(--rust); }
+.cc.teal   { border-color: var(--teal); }
+.cc.gold   { border-color: var(--gold); }
+.cc.purple { border-color: #5A4A9E; }
+.cc.slate  { border-color: var(--slate); }
+.cc-cat  { font-size: 0.63rem; text-transform: uppercase; letter-spacing: 0.07em; color: #8A9BAA; margin-bottom: 4px; }
+.cc-val  { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; line-height: 1.2; }
+.cc-note { font-size: 0.63rem; color: #8A9BAA; margin-top: 3px; line-height: 1.5; }
+
+.total-bar {
+  background: var(--ink); color: white; border-radius: 10px;
+  padding: 16px 20px; display: flex; align-items: center;
+  justify-content: space-between; flex-wrap: wrap; gap: 12px;
+}
+.total-lbl { font-size: 0.68rem; opacity: 0.5; letter-spacing: 0.08em; text-transform: uppercase; }
+.total-val { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--gold); font-weight: 700; }
+.total-sub { font-size: 0.65rem; opacity: 0.45; margin-top: 2px; }
+.total-pills { display: flex; gap: 12px; flex-wrap: wrap; }
+.tp { text-align: center; }
+.tp-v { font-size: 0.88rem; font-weight: 700; color: #FFD97D; }
+.tp-l { font-size: 0.6rem; opacity: 0.5; }
+
+/* CAR COMPARE */
+.car-compare {
+  background: var(--white); border-radius: 12px; padding: 16px 18px;
+  box-shadow: 0 1px 8px rgba(28,43,58,0.07); margin-top: 12px;
+}
+.car-compare h4 { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--teal); margin-bottom: 10px; }
+.car-rows { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.car-col { border-radius: 8px; padding: 10px 12px; }
+.car-col.no  { background: #FFF0E5; border: 1px solid #F5C8A8; }
+.car-col.yes { background: #E8F5F0; border: 1px solid #A8D8C8; }
+.car-col h5 { font-size: 0.72rem; font-weight: 700; margin-bottom: 6px; }
+.car-col.no  h5 { color: var(--rust); }
+.car-col.yes h5 { color: var(--teal); }
+.car-col ul { list-style: none; }
+.car-col ul li { font-size: 0.68rem; color: #556; line-height: 1.7; padding-left: 12px; position: relative; }
+.car-col ul li::before { content: '·'; position: absolute; left: 0; }
+.car-verdict { margin-top: 10px; background: var(--sea-lt); border-radius: 7px; padding: 8px 12px; font-size: 0.72rem; color: var(--sea); line-height: 1.6; }
+
+/* INFO ROW */
+.info-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px,1fr)); gap: 10px; margin-top: 12px; }
+.ic { background: var(--white); border-radius: 10px; padding: 12px 14px; box-shadow: 0 1px 6px rgba(28,43,58,0.07); }
+.ic h4 { font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--sea); margin-bottom: 6px; }
+.ic p  { font-size: 0.72rem; color: #556; line-height: 1.7; }
+.ic strong { color: var(--ink); }
+
+footer { text-align: center; padding: 20px; font-size: 0.62rem; color: #AAB; letter-spacing: 0.05em; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="h-grid">
+    <div>
+      <div class="h-title">高松入境・<em>岡山</em>深度遊<br>員工旅遊 2026</div>
+      <div class="h-sub">TAKAMATSU IN · OKAYAMA EXPLORE · 11/27–12/01 · 10人 · 5天4夜</div>
+      <div class="header-tags">
+        <span class="htag">🌊 瀨戶內海跳島</span>
+        <span class="htag">🎨 地中美術館＋大原美術館</span>
+        <span class="htag">🚲 直島電動單車</span>
+        <span class="htag">🦪 日生烤牡蠣</span>
+        <span class="htag">🏯 倉敷美觀地區</span>
+      </div>
+    </div>
+    <div class="flight-box">
+      <div class="flight-airline">✈ 中華航空 China Airlines</div>
+      <div class="flight-row"><strong>去程</strong> CI178 TPE→TAK</div>
+      <div class="flight-row" style="font-size:0.75rem;opacity:0.8">出發 14:43 → 抵達 17:20（直飛 2h37m）</div>
+      <div class="flight-row" style="margin-top:6px"><strong>回程</strong> CI179 TAK→TPE</div>
+      <div class="flight-row" style="font-size:0.75rem;opacity:0.8">出發 19:16 → 抵達 20:50</div>
+      <div class="flight-arr">票價參考：NT$12,000–16,000/人 來回含稅</div>
+    </div>
+  </div>
+</header>
+
+<!-- CAR ADVICE BANNER -->
+<div class="car-banner">
+  <span>🚗 租車建議</span>
+  <strong>不建議全程租車</strong>——JR 串聯高松↔岡山↔倉敷↔宇野港超方便，直島不適合帶車上島。
+  <span class="car-pill">✅ 僅 Day 4 日生牡蠣建議租 1 台車（半日）</span>
+</div>
+
+<!-- HOTEL STRIP -->
+<div class="hotel-strip">
+  <div class="hotel-group">
+    <div class="h-item">
+      <div>
+        <div class="h-name">🏨 Day 1–2｜Dormy Inn 高松</div>
+        <div class="h-detail">♨ 天然溫泉・免費宵夜拉麵・距高松站步行7分</div>
+      </div>
+      <span class="h-badge">2晚</span>
+    </div>
+    <div class="h-item">
+      <div>
+        <div class="h-name">🏨 Day 3–5｜Dormy Inn 岡山 吉備の湯</div>
+        <div class="h-detail">♨ 天然溫泉・免費宵夜拉麵・距岡山站步行12分</div>
+      </div>
+      <span class="h-badge">2晚</span>
+    </div>
+  </div>
+  <div class="h-price">
+    <span class="pv">NT$2,500–3,500</span>
+    <span class="pl">雙人房/晚・2人均攤</span>
+  </div>
+</div>
+
+<div class="wrap">
+
+<!-- DAY 1 -->
+<div class="day">
+  <div class="day-side ds1">
+    <div class="d-num">01</div><div class="d-wd">DAY</div>
+    <div class="d-dt">11/27<br>（五）</div>
+    <div class="d-loc">高松・抵達</div>
+  </div>
+  <div class="day-body">
+    <div class="d-head">✈ 飛抵高松・栗林公園夕陽・市區初探</div>
+    <div class="tl">
+      <div class="tl-row">
+        <div class="tl-t">14:43</div>
+        <div class="tl-dc"><div class="tl-dot" style="color:var(--ci-red)"></div><div class="tl-ln"></div></div>
+        <div class="tl-c">
+          <div class="tl-name">華航 CI178 出發 → 高松機場（TAK）</div>
+          <div class="tl-desc">直飛 2h37m・17:20 抵達・搭利木津巴士約 40 分至高松站</div>
+          <div class="tr"><span class="tag t-ci">🛫 CI178 直飛</span><span class="tag t-must">含行李 20kg</span></div>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-t">18:00</div>
+        <div class="tl-dc"><div class="tl-dot" style="color:var(--sea)"></div><div class="tl-ln"></div></div>
+        <div class="tl-c">
+          <div class="tl-name">Dormy Inn 高松 入住</div>
+          <div class="tl-desc">放行李、泡天然溫泉放鬆、領免費冰棒</div>
+          <div class="tr"><span class="tag t-free">♨ 免費溫泉</span></div>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-t">19:00</div>
+        <div class="tl-dc"><div class="tl-dot" style="color:var(--sea)"></div><div class="tl-ln"></div></div>
+        <div class="tl-c">
+          <div class="tl-name">高松中央商店街・晚餐</div>
+          <div class="spot-card">
+            <div class="spot-img"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Takamatsu_shotengai_2010.jpg/320px-Takamatsu_shotengai_2010.jpg" alt="高松商店街" onerror="this.parentNode.innerHTML='🛍'"></div>
+            <div class="spot-info">
+              <div class="spot-name">高松丸龜町商店街</div>
+              <div class="spot-meta">日本最長拱廊商店街 2.7km・藥妝・居酒屋・讚岐烏龍麵</div>
+              <a class="spot-link" href="https://www.sanuki-udon.net/" target="_blank">🍜 讚岐烏龍麵地圖 →</a>
+            </div>
+          </div>
+          <div class="tr"><span class="tag t-eat">🍜 烏龍麵</span><span class="tag t-shop">🛍 購物</span></div>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-t">21:30</div>
+        <div class="tl-dc"><div class="tl-dot" style="color:var(--sea)"></div><div class="tl-ln"></div></div>
+        <div class="tl-c">
+          <div class="tl-name">Dormy Inn 免費宵夜拉麵</div>
+          <div class="tl-desc">21:00–23:00 提供・免費醬油拉麵・第一天完美句點</div>
+          <div class="tr"><span class="tag t-free">🍜 免費</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DAY 2 -->
+<div class="day">
+  <div class="day-side ds2">
+    <div class="d-num">02</div><div class="d-wd">DAY</div>
+    <div class="d-dt">11/28<br>（六）</div>
+    <div class="d-loc">高松→岡山</div>
+  </div>
+  <div class="day-body">
+    <div class="d-head">🍂 栗林公園・金刀比羅宮・移動岡山</div>
+    <div class="tl">
+      <div class="tl-row">
+        <div class="tl-t">08:00</div>
+        <div class="tl-dc"><div class="tl-dot" style="color:var(--teal)"></div><div class="tl-ln"></div></div>
+        <div class="tl-c">
+          <div class="tl-name">栗林公園 早晨散步</div>
+          <div class="spot-card">
+            <div class="spot-img"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Ritsurin_Garden_November_2004.jpg/320px-Ritsurin_Garden_November_2004.jpg" alt="栗林公園" onerror="this.parentNode.innerHTML='🌿'"></div>
+            <div class="spot-info">
+              <div class="spot-name">栗林公園（日本三大名園・米其林⭐⭐⭐）</div>
+              <div class="spot-meta">11月底楓紅正美・6座池塘13座假山・入場 ¥410・步行至高松站約15分</div>
+              <a class="spot-link" href="https://www.my-kagawa.jp/ritsuringarden" target="_blank">官方網站 →</a>
+            </div>
+          </div>
+          <div class="tr"><span class="tag t-hist">🍂 楓葉</span><span class="tag t-must">⭐ 必訪</span></div>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-t">10:30</div>
+        <div class="tl-dc"><div class="tl-dot" style="color:var(--teal)"></div><div class="tl-ln"></div></div>
+        <div class="tl-c">
+          <div class="tl-name">金刀比羅宮（琴平）</div>
+          <div class="spot-card">
+            <div class="spot-img"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Kotohiragu_Shrine.jpg/320px-Kotohiragu_Shrine.jpg" alt="金刀比羅宮" onerror="this.parentNode.innerHTML='⛩'"></div>
+            <div class="spot-info">
+              <div class="spot-name">金刀比羅宮（こんぴらさん）</div>
+              <div class="spot-meta">785石階壯觀神社・從高松搭琴電約60分・沿途參道烏龍麵名店</div>
+              <a class="spot-link" href="https://www.konpira.or.jp/" target="_blank">官方網站 →</a>
+            </div>
+          </div>
+          <div class="tr"><span class="tag t-hist">⛩ 神社</span><span class="tag t-eat">🍜 參道烏龍麵</span></div>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-t">14:00</div>
+        <div class="tl-dc"><div class="tl-dot" style="color:var(--teal)"></div><div class="tl-ln"></div></div>
+        <div class="tl-c">
+          <div class="tl-name">搭 JR 特急 移動至岡山（約 1 小時）</div>
+          <div class="tl-desc">高松站→岡山站 JR 特急マリンライナー・車資約 ¥2,530・瀨戶大橋海景超美</div>
+          <div class="tr"><span class="tag t-sea">🌊 瀨戶大橋景</span></div>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-t">15:30</div>
+        <div class="tl-dc"><div class="tl-dot" style="color:var(--teal)"></div><div class="tl-ln"></div></div>
+        <div class="tl-c">
+          <div class="tl-name">Dormy Inn 岡山 入住・後樂園夕陽</div>
+          <div class="spot-card">
+            <div class="spot-img"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Korakuen_Garden_Okayama.jpg/320px-Korakuen_Garden_Okayama.jpg" alt="後樂園" onerror="this.parentNode.innerHTML='🌿'"></div>
+            <div class="spot-info">
+              <div class="spot-name">後樂園（日本三大名園之一）</div>
+              <div class="spot-meta">入場 ¥410・步行或路面電車可達・11月楓葉紅・傍晚光線最美</div>
+              <a class="spot-link" href="https://www.okayama-korakuen.jp/" target="_blank">官方網站 →</a>
+            </div>
+          </div>
+          <div class="tr"><span class="tag t-hist">🍂 名園</span><span class="tag t-must">⭐ 必訪</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DAY 3 -->
+<div class="day">
+  <div class="day-side ds3">
+    <div class="d-num">03</div><div class="d-wd">DAY</div>
+    <div class="d-dt">11/29<br>（日）</div>
+    <div class="d-loc">倉敷・藝術</div>
+  </div>
+  <div class="day-body">
+    <div class="d-head">🏯 倉敷美觀地區・大原美術館・運河遊船</div>
+    <div class="tl">
+      <div class="tl-row">
+        <div class="tl-t">09:00</div>
+        <div class="tl-dc"><div class="tl-dot" style="color:#5A4A9E"></div><div class="tl-ln"></div></div>
+        <div class="tl-c">
+          <div class="tl-name">倉敷美觀地區（JR 岡山→倉敷 15分）</div>
+          <div class="spot-card">
+            <div class="spot-img"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Kurashiki_Bikan_historical_quarter.jpg/320px-Kurashiki_Bikan_historical_quarter.jpg" alt="倉敷美觀地區" onerror="this.parentNode.innerHTML='🏛'"></div>
+            <div class="spot-info">
+              <div class="spot-name">倉敷美觀地區</div>
+              <div class="spot-meta">白壁倉庫江戶風情・柳樹垂岸・早晨人少最美・全天免費入場</div>
+              <a class="spot-link" href="https://www.kurashiki-tabi.jp/foreign/tw/" target="_blank">觀光官網 →</a>
+            </div>
+          </div>
+          <div class="tr"><span class="tag t-hist">🏛 江戶風情</span><span class="tag t-must">⭐ 必訪</span></div>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-t">10:00</div>
+        <div class="tl-dc"><div class="tl-dot" style="color:#5A4A9E"></div><div class="tl-ln"></div></div>
+        <div class="tl-c">
+          <div class="tl-name">大原美術館</div>
+          <div class="spot-card">
+            <div class="spot-img"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Ohara_Museum_of_Art_01.jpg/320px-Ohara_Museum_of_Art_01.jpg" alt="大原美術館" onerror="this.parentNode.innerHTML='🎨'"></div>
+            <div class="spot-info">
+              <div class="spot-name">大原美術館（日本第一座西洋美術館）</div>
+              <div class="spot-meta">莫內・葛雷科・雷諾瓦原作・入場 ¥2,000・約2小時</div>
+              <a class="spot-link" href="https://www.ohara.or.jp/" target="_blank">官方網站・門票預購 →</a>
+            </div>
+          </div>
+          <div class="tr"><span class="tag t-art">🎨 西洋美術</span><span class="tag t-must">⭐ 必訪</span></div>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-t">13:00</div>
+        <div class="tl-dc"><div class="tl-dot" style="color:#5A4A9E"></div><div class="tl-ln"></div></div>
+        <div class="tl-c">
+          <div class="tl-name">午餐・倉敷川畔</div>
+          <div class="tl-desc">白桃聖代・牛排丼・倉敷布丁・沿岸古民家咖啡廳</div>
+          <div class="tr"><span class="tag t-eat">🍑 白桃聖代</span><span class="tag t-eat">🥩 牛排丼</span></div>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-t">14:00</div>
+        <div class="tl-dc"><div class="tl-dot" style="color:#5A4A9E"></div><div class="tl-ln"></div></div>
+        <div class="tl-c">
+          <div class="tl-name">倉敷川遊船＋商店街購物</div>
+          <div class="tl-desc">和船穿梭柳樹白壁・¥500/人・約20分・吉備糰子伴手禮</div>
+          <div class="tr"><span class="tag t-sea">⛵ 遊船 ¥500</span><span class="tag t-shop">🛍 購物</span></div>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-t">17:00</div>
+        <div class="tl-dc"><div class="tl-dot" style="color:#5A4A9E"></div><div class="tl-ln"></div></div>
+        <div class="tl-c">
+          <div class="tl-name">返回岡山・晚餐居酒屋</div>
+          <div class="tl-desc">醬汁豬排丼（デミカツ丼）・岡山散壽司・清酒</div>
+          <div class="tr"><span class="tag t-eat">🍱 岡山名物</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DAY 4 -->
+<div class="day">
+  <div class="day-side ds4">
+    <div class="d-num">04</div><div class="d-wd">DAY</div>
+    <div class="d-dt">11/30<br>（一）</div>
+    <div class="d-loc">直島・牡蠣</div>
+  </div>
+  <div class="day-body">
+    <div class="d-head">🎨 直島藝術島・🚲 單車・🦪 日生烤牡蠣</div>
+    <div class="tl">
+      <div class="tl-row">
+        <div class="tl-t">07:30</div>
+        <div class="tl-dc"><div class="tl-dot" style="color:var(--rust)"></div><div class="tl-ln"></div></div>
+        <div class="tl-c">
+          <div class="tl-name">岡山→宇野港→直島（渡輪約20分）</div>
+          <div class="tl-desc">JR 宇野線 岡山→宇野約50分・宇野港搭渡輪20分抵宮浦港・早出發！</div>
+          <div class="tr"><span class="tag t-sea">⛴ 渡輪</span><span class="tag t-warn">⚠ 早出發搶人少</span></div>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-t">09:30</div>
+        <div class="tl-dc"><div class="tl-dot" style="color:var(--rust)"></div><div class="tl-ln"></div></div>
+        <div class="tl-c">
+          <div class="tl-name">草間彌生 紅南瓜・租電動單車</div>
+          <div class="spot-card">
+            <div class="spot-img"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Red_pumpkin_Naoshima.jpg/320px-Red_pumpkin_Naoshima.jpg" alt="直島紅南瓜" onerror="this.parentNode.innerHTML='🎃'"></div>
+            <div class="spot-info">
+              <div class="spot-name">草間彌生・南瓜裝置＋電動單車</div>
+              <div class="spot-meta">宮浦港標誌性紅南瓜・租電動腳踏車遊島（強烈建議電動款，島上有坡）</div>
+              <a class="spot-link" href="https://benesse-artsite.jp/en/naoshima/" target="_blank">直島官方 →</a>
+            </div>
+          </div>
+          <div class="tr"><span class="tag t-art">🎨 草間彌生</span><span class="tag t-bike">🚲 電動單車</span><span class="tag t-must">⭐ 必拍</span></div>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-t">10:30</div>
+        <div class="tl-dc"><div class="tl-dot" style="color:var(--rust)"></div><div class="tl-ln"></div></div>
+        <div class="tl-c">
+          <div class="tl-name">地中美術館（安藤忠雄設計）</div>
+          <div class="spot-card">
+            <div class="spot-img"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Chichu_Art_Museum.jpg/320px-Chichu_Art_Museum.jpg" alt="地中美術館" onerror="this.parentNode.innerHTML='🏛'"></div>
+            <div class="spot-info">
+              <div class="spot-name">地中美術館 Chichu Art Museum</div>
+              <div class="spot-meta">完全埋入地下・安藤忠雄清水模・莫內睡蓮・James Turrell・入場 ¥2,100</div>
+              <a class="spot-link" href="https://www.chichu.jp/" target="_blank">官方預約（必須）→</a>
+            </div>
+          </div>
+          <div class="tr"><span class="tag t-art">🏛 安藤忠雄</span><span class="tag t-must">⭐ 必訪</span><span class="tag t-warn">⚠ 需提前預約</span></div>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-t">13:00</div>
+        <div class="tl-dc"><div class="tl-dot" style="color:var(--rust)"></div><div class="tl-ln"></div></div>
+        <div class="tl-c">
+          <div class="tl-name">本村地區・家計畫・黃南瓜・午餐</div>
+          <div class="tl-desc">騎車穿梭古民家巷弄・黃南瓜海邊拍照・島上小食堂午餐（勿錯過，小島早關）</div>
+          <div class="tr"><span class="tag t-art">🏠 家計畫</span><span class="tag t-bike">🚲 騎車</span><span class="tag t-eat">🍱 島上午餐</span></div>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-t">15:00</div>
+        <div class="tl-dc"><div class="tl-dot" style="color:var(--rust)"></div><div class="tl-ln"></div></div>
+        <div class="tl-c">
+          <div class="tl-name">返程渡輪→宇野→岡山・換租車出發日生</div>
+          <div class="tl-desc">回岡山站附近租車（半日），自駕約40分至日生漁港・趕上烤牡蠣晚餐</div>
+          <div class="tr"><span class="tag t-car">🚗 半日租車</span><span class="tag t-warn">⚠ 唯一建議租車的一天</span></div>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-t">17:30</div>
+        <div class="tl-dc"><div class="tl-dot" style="color:var(--rust)"></div><div class="tl-ln"></div></div>
+        <div class="tl-c">
+          <div class="tl-name">🦪 日生 烤牡蠣・カキオコ</div>
+          <div class="spot-card">
+            <div class="spot-img"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Grilled_oysters.jpg/320px-Grilled_oysters.jpg" alt="烤牡蠣" onerror="this.parentNode.innerHTML='🦪'"></div>
+            <div class="spot-info">
+              <div class="spot-name">日生（ひなせ）烤牡蠣・牡蠣大阪燒</div>
+              <div class="spot-meta">日本頂級牡蠣產地・11月最鮮甜・現撈現烤一盤約 ¥1,500・カキオコ是當地名物</div>
+              <a class="spot-link" href="https://hinase-oyster.com/" target="_blank">日生牡蠣官網 →</a>
+            </div>
+          </div>
+          <div class="tr"><span class="tag t-eat">🦪 烤牡蠣</span><span class="tag t-must">⭐ 本日主角</span><span class="tag t-eat">🥞 牡蠣大阪燒</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="alert">⚠ 地中美術館須至官網提前預約時段門票（可提前1個月）。直島週一公休——但 11/30 是週一，家計畫部分設施可能關閉，建議出發前確認官網開放日期。</div>
+  </div>
+</div>
+
+<!-- DAY 5 -->
+<div class="day">
+  <div class="day-side ds5">
+    <div class="d-num">05</div><div class="d-wd">DAY</div>
+    <div class="d-dt">12/01<br>（二）</div>
+    <div class="d-loc">返高松・返台</div>
+  </div>
+  <div class="day-body">
+    <div class="d-head">🏯 岡山城・掃貨・搭車返高松・CI179 返台</div>
+    <div class="tl">
+      <div class="tl-row">
+        <div class="tl-t">09:00</div>
+        <div class="tl-dc"><div class="tl-dot" style="color:var(--slate)"></div><div class="tl-ln"></div></div>
+        <div class="tl-c">
+          <div class="tl-name">岡山城 晨間散步</div>
+          <div class="spot-card">
+            <div class="spot-img"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Okayama_Castle_02bs3200.jpg/320px-Okayama_Castle_02bs3200.jpg" alt="岡山城" onerror="this.parentNode.innerHTML='🏯'"></div>
+            <div class="spot-info">
+              <div class="spot-name">岡山城（烏城）</div>
+              <div class="spot-meta">黑色天守堡・與後樂園相鄰・入場 ¥400・楓葉配黑城超美</div>
+              <a class="spot-link" href="https://okayama-kanko.net/ujo/" target="_blank">官方網站 →</a>
+            </div>
+          </div>
+          <div class="tr"><span class="tag t-hist">🏯 岡山城</span></div>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-t">11:00</div>
+        <div class="tl-dc"><div class="tl-dot" style="color:var(--slate)"></div><div class="tl-ln"></div></div>
+        <div class="tl-c">
+          <div class="tl-name">退房・最後掃貨・岡山站伴手禮</div>
+          <div class="tl-desc">松本清藥妝・Bic Camera・吉備糰子・超市補貨・AEON Mall</div>
+          <div class="tr"><span class="tag t-shop">🛍 伴手禮</span></div>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-t">13:30</div>
+        <div class="tl-dc"><div class="tl-dot" style="color:var(--slate)"></div><div class="tl-ln"></div></div>
+        <div class="tl-c">
+          <div class="tl-name">JR 特急 マリンライナー 返回高松（約1小時）</div>
+          <div class="tl-desc">車資 ¥2,530・沿途再欣賞一次瀨戶大橋海景・14:30 抵高松</div>
+          <div class="tr"><span class="tag t-sea">🌊 瀨戶大橋</span></div>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-t">15:30</div>
+        <div class="tl-dc"><div class="tl-dot" style="color:var(--slate)"></div><div class="tl-ln"></div></div>
+        <div class="tl-c">
+          <div class="tl-name">高松站搭利木津巴士→高松機場</div>
+          <div class="tl-desc">約40分・建議 CI179 起飛前2.5小時出發・19:16 起飛</div>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-t">19:16</div>
+        <div class="tl-dc"><div class="tl-dot" style="color:var(--ci-red)"></div><div class="tl-ln"></div></div>
+        <div class="tl-c">
+          <div class="tl-name">華航 CI179 返台 → 台北桃園（20:50 抵）</div>
+          <div class="tl-desc">直飛 1h34m・滿載美食與回憶平安返家 🎉</div>
+          <div class="tr"><span class="tag t-ci">🛬 CI179 直飛</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- COST -->
+<div class="cost-wrap">
+  <div class="section-title">💰 費用預估（每人）</div>
+  <div class="cost-grid">
+    <div class="cc">
+      <div class="cc-cat">✈ 華航來回機票</div>
+      <div class="cc-val">NT$12,000–16,000</div>
+      <div class="cc-note">CI178/179 TPE↔TAK 直飛<br>含稅・20kg 行李<br>建議提前2個月訂</div>
+    </div>
+    <div class="cc rust">
+      <div class="cc-cat">🏨 住宿 4晚</div>
+      <div class="cc-val">NT$5,000–7,000</div>
+      <div class="cc-note">高松 Dormy Inn 2晚<br>岡山 Dormy Inn 2晚<br>雙人房均攤/人</div>
+    </div>
+    <div class="cc teal">
+      <div class="cc-cat">🚆 JR 交通</div>
+      <div class="cc-val">NT$2,000–3,000</div>
+      <div class="cc-note">高松↔岡山×2（¥2,530×2）<br>路面電車・機場巴士<br>宇野渡輪來回</div>
+    </div>
+    <div class="cc gold">
+      <div class="cc-cat">🎨 景點門票</div>
+      <div class="cc-val">NT$1,500–2,500</div>
+      <div class="cc-note">栗林公園 ¥410<br>後樂園 ¥410<br>大原美術館 ¥2,000<br>地中美術館 ¥2,100</div>
+    </div>
+    <div class="cc purple">
+      <div class="cc-cat">🚗 租車（Day4 半日）</div>
+      <div class="cc-val">NT$500–800</div>
+      <div class="cc-note">1台5人座半日<br>10人均攤<br>含油費・停車</div>
+    </div>
+    <div class="cc slate">
+      <div class="cc-cat">🍽 餐飲</div>
+      <div class="cc-val">NT$4,000–6,000</div>
+      <div class="cc-note">含烤牡蠣・居酒屋<br>Dormy Inn 免費宵夜省一餐<br>午餐約 ¥1,000–1,500</div>
+    </div>
+  </div>
+  <div class="total-bar">
+    <div>
+      <div class="total-lbl">每人預估總計</div>
+      <div class="total-val">NT$25,000–35,500</div>
+      <div class="total-sub">視訂票時機・匯率（1JPY≈0.22NTD）浮動・不含購物</div>
+    </div>
+    <div class="total-pills">
+      <div class="tp"><div class="tp-v">10人</div><div class="tp-l">出發人數</div></div>
+      <div class="tp"><div class="tp-v">5天4夜</div><div class="tp-l">行程天數</div></div>
+      <div class="tp"><div class="tp-v">華航直飛</div><div class="tp-l">CI178/179</div></div>
+      <div class="tp"><div class="tp-v">11月淡季</div><div class="tp-l">較便宜</div></div>
+    </div>
+  </div>
+
+  <!-- CAR COMPARE -->
+  <div class="car-compare" style="margin-top:12px">
+    <h4>🚗 租車分析：以經濟性＋方便性為主，建議這樣做</h4>
+    <div class="car-rows">
+      <div class="car-col no">
+        <h5>❌ 不建議全程租車</h5>
+        <ul>
+          <li>JR 高松↔岡山↔倉敷全線方便</li>
+          <li>直島無法帶車上島（船位費超貴）</li>
+          <li>岡山市區停車費高（¥200–400/hr）</li>
+          <li>2台車 4天 + 高速費 ≈ NT$15,000+</li>
+          <li>10人 JR 搭車反而更省、更快</li>
+        </ul>
+      </div>
+      <div class="car-col yes">
+        <h5>✅ Day 4 下午租 1 台即可</h5>
+        <ul>
+          <li>日生漁港沒有大眾運輸直達</li>
+          <li>下午從岡山租車半日（約3–4小時）</li>
+          <li>1台5人座約 ¥5,000–7,000 半日</li>
+          <li>10人搭2趟或包計程車也可</li>
+          <li>吃完牡蠣返回岡山還車即可</li>
+        </ul>
+      </div>
+    </div>
+    <div class="car-verdict">
+      💡 結論：<strong>其他4天完全不需要租車</strong>，JR 一張票搞定高松→岡山→倉敷→宇野港→直島，比租車省錢又省停車煩惱。Day 4 日生牡蠣那天再租 1 台即可，每人均攤成本不到 NT$800。
+    </div>
+  </div>
+</div>
+
+<!-- INFO CARDS -->
+<div class="info-row">
+  <div class="ic">
+    <h4>🎫 推薦票券</h4>
+    <p><strong>JR 瀨戶內地區周遊券</strong><br>涵蓋高松↔岡山・宇野線・山陽本線<br>建議在台灣預購較便宜<br>可搭 JR 特急 マリンライナー</p>
+  </div>
+  <div class="ic">
+    <h4>🌡 11月底天氣</h4>
+    <p>高松・岡山 約 <strong>8–16°C</strong><br>晴天之國少雨・楓葉旺季<br>早晚偏涼，外套+薄毛衣<br>直島海風較強，多帶一件</p>
+  </div>
+  <div class="ic">
+    <h4>⚠ 重要注意</h4>
+    <p>・地中美術館<strong>提前預約</strong>必要<br>・直島 11/30（週一）部分休館<br>・日生牡蠣 11月–4月產季<br>・JR マリンライナー 需對號座</p>
+  </div>
+  <div class="ic">
+    <h4>🍱 必吃清單</h4>
+    <p>讚岐烏龍麵（高松）<br>日生烤牡蠣・カキオコ<br>倉敷白桃聖代<br>デミカツ丼（岡山名物）<br>吉備糰子（伴手禮）</p>
+  </div>
+</div>
+
+</div>
+<footer>高松入境・岡山員工旅遊 2026 · 11/27–12/01 · 10人 · 華航 CI178/CI179 直飛高松</footer>
+</body>
+</html>
